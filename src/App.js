@@ -1,16 +1,22 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes} from 'react-router-dom'
 
 function App() {
   return (
     <div style={{ textAlign: 'center' }}>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+            <Routes>
+                <Route
+                    path="/home"
+                    exact
+                    element={
+                        <div>
+                          <h1>Home</h1>
+                        </div>
+                    }
+                />
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }

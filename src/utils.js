@@ -108,3 +108,59 @@ export const getCatImage = async (breed) => {
 export const getRandomCatImage = async () => {
     return await getCatImage(getCatBreed());
 }
+
+//AirTable related functions
+export const addTableData = async (tableName, newFields) => {
+    const res = await fetch(
+        `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}`,
+        {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                records: [
+                    {
+                        fields: {
+                            ...newFields,
+                        },
+                    },
+                ],
+            }),
+        }
+    );
+    const data = await res.json();
+    return data;
+};
+
+export const getTableData = async (tableName) => {
+    const res = await fetch(
+        `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}`,
+        {
+            headers: {
+                Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+            },
+        }
+    );
+    const data = await res.json();
+    //Sort so that most recent entries are at beginning of array
+    data.records.sort((a, b) => {
+        return b.createdTime.localeCompare(a.createdTime);
+    })
+    return data;
+};
+
+export const deleteTableData = async (tableName, recordId) => {
+    const res = await fetch(
+        `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}/${recordId}`,
+        {
+            headers: {
+                Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+            },
+            method: "DELETE",
+        }
+    );
+    const data = await res.json();
+    return data;
+};
