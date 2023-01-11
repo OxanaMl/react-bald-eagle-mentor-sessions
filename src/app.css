@@ -1,0 +1,8 @@
+.product-summary img {
+    width: 200px;
+    height: 200px;
+}
+
+.product-summary {
+    display: flex;
+}
