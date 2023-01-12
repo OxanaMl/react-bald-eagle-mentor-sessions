@@ -1,0 +1,20 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    background-color: burlywood;
+    border-bottom: 1px solid black;
+}
+
+body {
+    margin: 0;
+}
+
+.cat-summary {
+    display: flex;
+    justify-content: center;
+}
+
+.cat-summary img {
+    width: 50px;
+    height: 50px;
+}

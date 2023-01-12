@@ -1,24 +1,40 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes} from 'react-router-dom'
+import React from "react";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import AdoptPage from "./adopt-page";
+import CatDetailsPage from "./cat-details-page";
+import Header from "./header";
+import HomePage from "./home-page";
+import NotFound from "./not-found";
+import "./app.css";
+//Website concept is animal shelter
+//Multi page site (two pages)
+//home/about page
+//adoption list page
+//individual cat details page
 
 function App() {
-  return (
-    <div style={{ textAlign: 'center' }}>
-      <BrowserRouter>
-            <Routes>
-                <Route
-                    path="/home"
-                    exact
+    return (
+        <BrowserRouter>
+            <div style={{ textAlign: "center" }}>
+                <Header />
+                <Routes>
+                    <Route path="/home" element={<HomePage />} />
+                    <Route path="/adopt" element={<AdoptPage />} />
+                    <Route path="/cat/:catId" element={<CatDetailsPage />} />
+                    <Route path="/*" element={<NotFound />} />
+                    {/* <Route
+                    path="/*"
                     element={
                         <div>
-                          <h1>Home</h1>
+                          <h1>Page not found!</h1>
+                          <Link to="/home">Return to Home Page</Link>
                         </div>
                     }
-                />
-            </Routes>
+                /> */}
+                </Routes>
+            </div>
         </BrowserRouter>
-    </div>
-  );
+    );
 }
 
 export default App;

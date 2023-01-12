@@ -151,6 +151,19 @@ export const getTableData = async (tableName) => {
     return data;
 };
 
+export const getTableRecord = async (tableName, recordId) => {
+    const res = await fetch(
+        `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}/${recordId}`,
+        {
+            headers: {
+                Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+            },
+        }
+    );
+    const data = await res.json();
+    return data;
+};
+
 export const deleteTableData = async (tableName, recordId) => {
     const res = await fetch(
         `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}/${recordId}`,
