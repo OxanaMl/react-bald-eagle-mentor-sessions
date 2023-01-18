@@ -12,6 +12,11 @@ import "./app.css";
 //adoption list page
 //individual cat details page
 
+//goals for 20230117
+//add a delete button for individual cats
+//Sorting buttons for different cat criteria (name, age) on adopt page
+//random cat of day button
+
 function App() {
     return (
         <BrowserRouter>
