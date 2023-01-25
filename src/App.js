@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
+import AdoptionForm from './adoption-form'
+import AdoptionFormFunctional from './adoption-form-functional';
 
 function App() {
   return (
@@ -11,7 +13,8 @@ function App() {
                     exact
                     element={
                         <div>
-                          <h1>Home</h1>
+                          <AdoptionForm/>
+                          <AdoptionFormFunctional/>
                         </div>
                     }
                 />
