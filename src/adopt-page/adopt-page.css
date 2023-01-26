@@ -1,0 +1,24 @@
+.adopt-page {
+    background-color: #ECCFC3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cat-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+}
+
+.info-box {
+    display: flex;
+}
+
+.cat-summary img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}

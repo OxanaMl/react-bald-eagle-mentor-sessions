@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import AdoptPage from "./adopt-page";
+import AdoptPage from "./adopt-page/adopt-page";
 import CatDetailsPage from "./cat-details-page";
 import Header from "./header";
 import HomePage from "./home-page";
 import NotFound from "./not-found";
 import "./app.css";
+
 //Website concept is animal shelter
 //Multi page site (two pages)
 //home/about page

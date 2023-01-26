@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getTableData, deleteTableData } from "./utils";
+import { getTableData, deleteTableData } from "../utils";
+import './adopt-page.css'
 
 const AdoptPage = () => {
     const [catList, setCatList] = useState([]);
@@ -20,7 +21,7 @@ const AdoptPage = () => {
     }
 
     return (
-        <div>
+        <div className="adopt-page">
             <h1>Adopt One of These Cats!</h1>
             <button onClick={() => {
                 const newCatList = [...catList].sort((catInfoA, catInfoB) => {
@@ -44,11 +45,13 @@ const AdoptPage = () => {
             {catList.map((catInfo) => {
                 return (
                     <div className="cat-summary">
-                        <Link to={`/cat/${catInfo.id}`}>
-                            <h3>{catInfo.fields.name}</h3>
-                        </Link>
                         <img src={catInfo.fields.image} />
-                        <button onClick={() => handleDeleteCat(catInfo.id)}>Cat Adopted</button>
+                        <div className="info-box">
+                            <Link to={`/cat/${catInfo.id}`}>
+                                <h3>{catInfo.fields.name}</h3>
+                            </Link>
+                            <button onClick={() => handleDeleteCat(catInfo.id)}>Cat Adopted</button>
+                        </div>
                     </div>
                 );
             })}

@@ -1,20 +1,31 @@
-header {
+.header {
     display: flex;
-    justify-content: space-around;
-    background-color: burlywood;
+    justify-content: flex-start;
+    background-color: #904C77;
     border-bottom: 1px solid black;
+    align-items: center;
 }
 
 body {
     margin: 0;
 }
 
-.cat-summary {
-    display: flex;
-    justify-content: center;
+.header a {
+    color: black;
+    text-decoration: none;
+    margin: 0 20px;
 }
 
-.cat-summary img {
-    width: 50px;
-    height: 50px;
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h2 {
+    margin: 0 10px;
+    height: fit-content;
+}
+
+.heart.pink {
+    /* fill: #E49AB0; */
 }
