@@ -134,6 +134,28 @@ export const addTableData = async (tableName, newFields) => {
     return data;
 };
 
+export const editTableData = async (tableName, newRecords) => {
+    const res = await fetch(
+        `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}`,
+        {
+            method: "PATCH",
+            headers: {
+                Authorization: `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                records: [
+                    {
+                        ...newRecords
+                    },
+                ],
+            }),
+        }
+    );
+    const data = await res.json();
+    return data;
+};
+
 export const getTableData = async (tableName) => {
     const res = await fetch(
         `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}`,
