@@ -1,16 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './app.css';
 
 function App() {
+  const [selectedColor, setSelectedColor] = useState('#DDDDDD');
   return (
     <div style={{ textAlign: 'center' }}>
-      <header>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <input type="color" value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}/>
+      <div className="color-box" style={{ '--boxColor': selectedColor }}></div>
+      <div className="color-box" style={{ '--boxColor': '#EEEEEE' }}></div>
     </div>
   );
 }
