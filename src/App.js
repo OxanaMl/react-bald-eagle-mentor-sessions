@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import AdoptPage from "./adopt-page/adopt-page";
 import CatDetailsPage from "./cat-details-page";
@@ -6,6 +6,8 @@ import Header from "./header";
 import HomePage from "./home-page";
 import NotFound from "./not-found";
 import "./app.css";
+import CatData from "./cat-data-context";
+import { getTableData } from "./utils";
 
 //Website concept is animal shelter
 //Multi page site (two pages)
@@ -18,8 +20,19 @@ import "./app.css";
 //Sorting buttons for different cat criteria (name, age) on adopt page
 //random cat of day button
 
+
 function App() {
+    const [catList, setCatList] = useState([]);
+
+    useEffect(() => {
+        getTableData("CatAdoption").then((data) => {
+            console.log(data);
+            setCatList(data.records);
+        });
+    }, []);
+
     return (
+      <CatData.Provider value={{catList, setCatList}}>
         <BrowserRouter>
             <div style={{ textAlign: "center" }}>
                 <Header />
@@ -40,6 +53,7 @@ function App() {
                 </Routes>
             </div>
         </BrowserRouter>
+      </CatData.Provider>
     );
 }
 

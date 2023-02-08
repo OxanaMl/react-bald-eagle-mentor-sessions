@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { getTableData, deleteTableData } from "../utils";
 import './adopt-page.css'
+import CatData from "../cat-data-context";
 
 const AdoptPage = () => {
-    const [catList, setCatList] = useState([]);
-    useEffect(() => {
-        getTableData("CatAdoption").then((data) => {
-            console.log(data);
-            setCatList(data.records);
-        });
-    }, []);
+    // const [catList, setCatList] = useState([]);
+    const catData = useContext(CatData);
+    const { catList, setCatList } = catData;
 
     const handleDeleteCat = async(catId) => {
         await deleteTableData("CatAdoption", catId);
