@@ -29,3 +29,7 @@ body {
 .heart.pink {
     /* fill: #E49AB0; */
 }
+
+.cat-details img {
+    width: 50%;
+}

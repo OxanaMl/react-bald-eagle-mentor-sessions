@@ -5,6 +5,7 @@ import CatDetailsPage from "./cat-details-page";
 import Header from "./header";
 import HomePage from "./home-page";
 import NotFound from "./not-found";
+import AddCatPage from "./add-cat-page/add-cat-page";
 import "./app.css";
 import CatData from "./cat-data-context";
 import { getTableData } from "./utils";
@@ -39,6 +40,7 @@ function App() {
                 <Routes>
                     <Route path="/home" element={<HomePage />} />
                     <Route path="/adopt" element={<AdoptPage />} />
+                    <Route path="/add-cat" element={<AddCatPage />} />
                     <Route path="/cat/:catId" element={<CatDetailsPage />} />
                     <Route path="/*" element={<NotFound />} />
                     {/* <Route

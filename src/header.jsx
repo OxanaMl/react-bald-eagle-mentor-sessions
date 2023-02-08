@@ -27,6 +27,7 @@ const Header = () => {
             </Link>
             <Link to="/home">Home</Link>
             <Link to="/adopt">Adopt</Link>
+            <Link to="/add-cat">Add Cat</Link>
         </header>
     );
 };
