@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import { getTableRecord } from "./utils";
 import CatData from "./cat-data-context";
-import CatForm from "./cat-form/cat-form";
+import CatForm from "./cat-form/cat-form.tsx";
 import {editTableData} from './utils';
 
 const CatDetailsPage = () => {
@@ -32,6 +32,7 @@ const CatDetailsPage = () => {
         <div className="cat-details">
             <h1>{catInfo.fields.name}</h1>
             <h2>{catInfo.fields.age} years old</h2>
+            <p>Microchipped: {catInfo.fields.microchipped ? 'Yes' : 'No'}</p>
             <img src={catInfo.fields.image} />
             <div>
                 {isEditing ? (

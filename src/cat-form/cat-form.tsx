@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 
-const CatForm = ({ onSubmit, defaultName = '' }) => {
+type ItemProps = {onSubmit: (name: string, imageUrl: string, age: number, microchipped: boolean) => void, defaultName: string}
+
+const CatForm = ({ onSubmit, defaultName = '' } : ItemProps) => {
     const [age, setAge] = useState(1);
     const [name, setName] = useState(defaultName);
     const [imageUrl, setImageUrl] = useState('');
+    const [microchipped, setMicrochipped] = useState(true);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e : React.SyntheticEvent) => {
         e.preventDefault();
-        if(onSubmit) onSubmit(name, imageUrl, age)
+        if(onSubmit) onSubmit(name, imageUrl, age, microchipped)
     }
     return (
         <form onSubmit={handleSubmit}>
@@ -19,14 +21,14 @@ const CatForm = ({ onSubmit, defaultName = '' }) => {
             <label htmlFor="age">Age</label>
             <input id="age" type="number" onChange={(e) => setAge(Number(e.target.value))} value={age}/>
             <button type="submit">Add Cat</button>
-            <input type="checkbox" onChange={(e) => console.log(e.target.checked)} value={age}/>
+            <label htmlFor="microchipped">Microchipped</label>
+            <input id="microchipped" type="checkbox" checked={microchipped} onChange={(e) => {
+
+                setMicrochipped(e.target.checked)
+                handleSubmit(e)
+            }} value={age}/>
         </form>
     );
-};
-
-CatForm.propTypes = {
-    onSubmit: PropTypes.number,
-    defaultName: PropTypes.string,
 };
 
 export default CatForm;
