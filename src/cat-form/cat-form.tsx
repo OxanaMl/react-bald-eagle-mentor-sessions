@@ -23,7 +23,6 @@ const CatForm = ({ onSubmit, defaultName = '' } : ItemProps) => {
             <button type="submit">Add Cat</button>
             <label htmlFor="microchipped">Microchipped</label>
             <input id="microchipped" type="checkbox" checked={microchipped} onChange={(e) => {
-
                 setMicrochipped(e.target.checked)
                 handleSubmit(e)
             }} value={age}/>

@@ -25,7 +25,7 @@ const CatForm = ({ onSubmit, defaultName = '' }) => {
 };
 
 CatForm.propTypes = {
-    onSubmit: PropTypes.number,
+    onSubmit: PropTypes.func,
     defaultName: PropTypes.string,
 };
 
