@@ -10,10 +10,12 @@ const CatForm = ({ onSubmit, defaultName = '' }) => {
         e.preventDefault();
         if(onSubmit) onSubmit(name, imageUrl, age)
     }
+
+    const handleNameChange = (e) => setName(e.target.value)
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Name</label>
-            <input id="name" onChange={(e) => setName(e.target.value)} value={name}/>
+            <input id="name" onChange={handleNameChange} value={name}/>
             <label htmlFor="imageUrl">Image Url</label>
             <input id="imageUrl" onChange={(e) => setImageUrl(e.target.value)} value={imageUrl}/>
             <label htmlFor="age">Age</label>
