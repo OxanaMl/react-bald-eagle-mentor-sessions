@@ -4,6 +4,12 @@
     background-color: #904C77;
     border-bottom: 1px solid black;
     align-items: center;
+    position: relative;
+}
+
+.header .route-options {
+    position: absolute;
+    top: 50px;
 }
 
 body {

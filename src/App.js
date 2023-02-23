@@ -42,7 +42,7 @@ function App() {
                     <Route path="/adopt" element={<AdoptPage />} />
                     <Route path="/add-cat" element={<AddCatPage />} />
                     <Route path="/cat/:catId" element={<CatDetailsPage />} />
-                    <Route path="/*" element={<NotFound />} />
+                    {/* <Route path="/*" element={<NotFound />} /> */}
                     {/* <Route
                     path="/*"
                     element={

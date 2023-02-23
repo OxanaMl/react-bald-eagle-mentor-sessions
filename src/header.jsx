@@ -11,6 +11,7 @@ const getRandomColor = () => {
 }
 
 const Header = () => {
+    const [open, setOpen] = useState(false);
     const [randomColor, setRandomColor] = useState(getRandomColor());
     useEffect(() => {
         setInterval(() => {
@@ -28,6 +29,14 @@ const Header = () => {
             <Link to="/home">Home</Link>
             <Link to="/adopt">Adopt</Link>
             <Link to="/add-cat">Add Cat</Link>
+            <button onClick={() => setOpen(!open)}>Hamburger Menu</button>
+            {open &&
+                <div className="route-options">
+                    <Link to="/home">Home</Link>
+                    <Link to="/adopt">Adopt</Link>
+                    <Link to="/add-cat">Add Cat</Link>
+                </div>
+            }
         </header>
     );
 };
